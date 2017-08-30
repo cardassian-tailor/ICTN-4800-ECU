@@ -7,7 +7,7 @@ for LCV in 3389 5900
 
 do
 echo "Unique IP address count for Port $LCV"
-grep "DPT=$LCV " /root/flotsam_files/fgw.txt | grep -o 'SRC=[^ ]*' |cut -d"=" -f2 |sort -n |uniq -c |sort -n |while read LINE
+grep "DPT=$LCV " /root/flotsam_files/fgw.txt | grep -o 'SRC=[^ ]*' |cut -d"=" -f2 |sort -n |uniq -c |sort -n |while read -r LINE
 do
 IPA="`echo $LINE | tr -s " " |cut -d" " -f2`"
 echo "$LINE" "`geoiplookup -f /usr/share/GeoIP/GeoLiteCity.dat $IPA |tr "," " " |tr -s " " |cut -d" " -f6`"
