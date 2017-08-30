@@ -1,0 +1,15 @@
+#!/bin/bash
+#script that satisfies the reqmt's of ICTN4800 hmwk assignment 1.
+#22 and 23 are omitted for brevity
+for LCV in 3389 5900
+
+# Look inside the log file fgw.txt and include more port numbers (assignment asks for 4) 
+
+do
+echo "Unique IP address count for Port $LCV"
+grep "DPT=$LCV " /root/flotsam_files/fgw.txt | grep -o 'SRC=[^ ]*' |cut -d"=" -f2 |sort -n |uniq -c |sort -n |while read LINE
+do
+IPA="`echo $LINE | tr -s " " |cut -d" " -f2`"
+echo "$LINE" "`geoiplookup -f /usr/share/GeoIP/GeoLiteCity.dat $IPA |tr "," " " |tr -s " " |cut -d" " -f6`"
+done | column
+done | tee /root/hmwk1.dat
