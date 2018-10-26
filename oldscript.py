@@ -8,11 +8,6 @@
 #
 #
 #
-# If you found this script helpful please send me a thank you message and if your inclined a small donation via ZEC or ETH/ETC
-#
-#
-#
-#
 
 # For great books on Python, check out NoStarch Press. For some awesome courses, check out Coursera's 'python for everybody' with charles severance  
 # Green Tea Press't 'think python', the second edition, is also a good read. http://greenteapress.com/wp/think-python-2e/  
